@@ -1,0 +1,12 @@
+.dashboard {
+    background-color: #242e63;
+    border-radius: 0 0 1em 1em;
+}
+
+.imagen {
+    width: 64px;
+}
+
+.navbar-light .navbar-nav .nav-link {
+    color: #c4c4c4;
+}

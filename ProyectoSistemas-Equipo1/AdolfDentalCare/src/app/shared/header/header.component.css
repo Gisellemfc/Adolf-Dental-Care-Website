@@ -1,0 +1,23 @@
+.header {
+    background-color: #242e63;
+    border-radius: 0 0 1em 1em;
+}
+
+.contactos {
+    background-color: #c4c4c4;
+    height: 70px;
+    margin-top: 10px;
+    border-radius: 1em;
+}
+
+.imagen {
+    width: 64px;
+}
+
+.navbar-light .navbar-nav .nav-link {
+    color: #c4c4c4;
+}
+
+.btn-light {
+    width: 100%;
+}
