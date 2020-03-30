@@ -1,0 +1,28 @@
+<div class="container-fluid">
+    <div class="row m-3">
+        <div class="col-12 col-md-6 d-flex justify-content-center align-items-center">
+            <h4 class="textoAzul">MIS CITAS</h4>
+        </div>
+        <div class="col-12 col-md-6 d-flex justify-content-center justify-content-md-end">
+            <button class="btn btn-dark h-100" (click)="habilitarCita()">CREAR CITA</button>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col" *ngIf="cita && noTieneCita">
+            <app-crear-cita></app-crear-cita>
+        </div>
+    </div>
+
+    <div class="row" *ngIf="!noTieneCita">
+        <div class="col titulosRosa text-center">
+            <h5>Estimado usuario, debido a que posee una cita pendiente no podrá crear otra nueva cita. Por favor, espere a que su consulta sea registrada o proceda a cancelar su cita pendiente.</h5>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col text-center">
+            <app-citas></app-citas>
+        </div>
+    </div>
+</div>

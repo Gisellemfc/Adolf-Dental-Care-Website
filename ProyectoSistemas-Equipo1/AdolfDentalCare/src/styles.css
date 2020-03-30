@@ -1,0 +1,79 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+.backAzul {
+    background-color: #242e63;
+}
+
+.titulosRosa {
+    color: #e9168b;
+}
+
+.textoALaIzquierda {
+    text-align: left;
+}
+
+.textoAzul,
+.textAzul {
+    color: #242e63;
+}
+
+.textoBlanco {
+    color: #ffff;
+}
+
+.tamañoImagen {
+    max-height: 600px;
+}
+
+.fondoGris,
+.backGris {
+    background-color: #c4c4c4;
+}
+
+.btn,
+.btn-light {
+    border-color: #c4c4c4 !important;
+    width: 50%;
+    height: 20%;
+    background-color: #e9168b !important;
+    font-size: 1.5em !important;
+}
+
+div>hr {
+    height: 3px;
+    background-color: #c4c4c4;
+}
+
+.textoBlanco {
+    color: #ffff;
+}
+
+.fondoRosado {
+    background-color: #e9168b;
+}
+
+.centrar {
+    justify-self: center;
+}
+
+.formularios {
+    font-size: 1.3em;
+    font-style: oblique;
+    color: #242e63;
+}
+
+.enlace {
+    color: #ffffff;
+    display: block;
+    text-decoration: none;
+}
+
+.navbar-light,
+.navbar-nav,
+.nav-link {
+    color: #c4c4c4;
+}

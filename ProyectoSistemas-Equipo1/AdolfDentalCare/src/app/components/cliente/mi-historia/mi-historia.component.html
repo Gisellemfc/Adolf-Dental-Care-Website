@@ -1,0 +1,179 @@
+<div class="container-fluid">
+
+
+    <div class="row mt-3 justify-content-center">
+        <!--datos dashboard histórico-->
+        <div class="col-12">
+            <h4 class="titulosRosa text-center">HISTÓRICO</h4>
+        </div>
+        <!--titulo-->
+        <div class="col-12">
+            <h5 class="titulosRosa textoALaIzquierda">Antecedentes personales:</h5>
+        </div>
+
+        <!--datos-->
+        <div class="col-12 text-center">
+
+            <table class="table">
+                <tbody>
+                    <tr>
+                        <th scope="row">
+                            <h5 class="textAzul ">Nombre y Apellido:</h5>
+                        </th>
+                        <td>
+                            <h5 class="textAzul ">{{ usuario.paciente.nombre }} {{ usuario.paciente.apellido }}</h5>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th scope="row">
+                            <h5 class="textAzul">Ref. historia clínica:</h5>
+                        </th>
+                        <td>
+                            <h5 *ngIf="usuario" class="textAzul">{{usuario.uid}}</h5>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th scope="row">
+                            <h5 class="textAzul">Fecha de nacimiento:</h5>
+                        </th>
+                        <td>
+                            <h5 class="textAzul ">{{ usuario.paciente.nacimiento }}</h5>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th scope="row">
+                            <h5 class="textAzul">Género:</h5>
+                        </th>
+                        <td>
+                            <h5 class="textAzul ">{{ usuario.paciente.genero }}</h5>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th scope="row">
+                            <h5 class="textAzul">Teléfono:</h5>
+                        </th>
+                        <td>
+                            <h5 class="textAzul">{{ usuario.paciente.telefono }}</h5>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+
+        </div>
+
+        <!--titulo-->
+        <div class="col-12">
+            <h4 class="titulosRosa textoALaIzquierda">Antecedentes clínicos:</h4>
+        </div>
+
+
+        <div class="col-12 text-center">
+
+            <table class="table">
+                <tbody>
+                    <tr>
+                        <th scope="row">
+                            <h5 class="textAzul">Antecedente patológico:</h5>
+                        </th>
+                        <td>
+                            <h5 class="textAzul">{{ usuario.paciente.antecedentes }}</h5>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th scope="row">
+                            <h5 class="textAzul ">Alergias medicamentosas:</h5>
+                        </th>
+                        <td>
+                            <h5 class="textAzul ">{{ usuario.paciente.alergias }}</h5>
+                        </td>
+                    </tr>
+
+                </tbody>
+            </table>
+
+
+        </div>
+
+
+
+    </div>
+
+    <div class="row">
+        <div class="col-12 text-center textoAzul">
+            <h4 class="titulosRosa text-center">HISTORIAL DE CITAS</h4>
+        </div>
+    </div>
+
+    <div class="row" *ngIf="citas.length === 0">
+        <div class="col text-center titulosRosa">
+            <h5 class="textAzul">No posee consultas registradas todavía.</h5>
+        </div>
+    </div>
+
+    <div class="row mt-3" *ngIf="citas.length !== 0">
+        <div class="col-12 mt-3" *ngFor="let cita of citas">
+
+            <table class="table textoAzul table-responsive  d-flex justify-content-center">
+
+                <tbody>
+
+                    <tr>
+                        <th scope="row">
+                            <h5 class="textAzul ">ID:</h5>
+                        </th>
+                        <td>
+                            <h5 class="textAzul ">{{ cita.id }}</h5>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <th scope="row">
+                            <h5 class="textAzul ">Fecha y Hora:</h5>
+                        </th>
+                        <td>
+                            <h5 class="textAzul ">{{ cita.fecha }} a las {{ cita.hora }} hrs</h5>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <th scope="row">
+                            <h5 class="textAzul ">Tratamiento:</h5>
+                        </th>
+                        <td>
+                            <h5 class="textAzul ">{{ cita.tratamiento }}</h5>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <th scope="row">
+                            <h5 class="textAzul ">Costo:</h5>
+                        </th>
+                        <td>
+                            <h5 class="textAzul ">{{ cita.costo }}</h5>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <th scope="row">
+                            <h5 class="textAzul ">Récipe:</h5>
+                        </th>
+                        <td>
+                            <h5 class="textAzul ">{{ cita.recipe }}</h5>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th scope="row">
+                            <h5 class="textAzul ">Archivo:</h5>
+                        </th>
+                        <td>
+                            <a [href]="cita.archivo" target="blank">Enlace de descarga</a>
+                        </td>
+                    </tr>
+                </tbody>
+
+            </table>
+        </div>
+    </div>
+
+</div>

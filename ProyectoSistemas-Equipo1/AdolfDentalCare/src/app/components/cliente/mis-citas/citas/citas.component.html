@@ -1,0 +1,148 @@
+<div class="row mt-3">
+    <div class="col textoAzul">
+        <h4>PRÓXIMA CITA</h4>
+    </div>
+</div>
+
+<div class="row mt-3" *ngIf="tieneCita; then thenBlock else elseBlock">
+</div>
+
+<ng-template #thenBlock>
+
+    <li class="list-group-item">
+
+        <div class="row textoAzul textoALaIzquierda">
+            <div class="col-12 col-sm-8">
+                <h5>Tratamiento:</h5>
+                <h6>{{ cita.tratamiento }}</h6>
+                <h5>Id de cita:</h5>
+                <h6>{{ cita.id }}</h6>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-12">
+                <button class="h-100 w-50 btn btn-primary text-center align-self-center" (click)="mostrarCita()">Detalles</button>
+            </div>
+        </div>
+      
+
+        <div class="row" *ngIf="citaActiva">
+            <div class="col">
+                <div class="row align-items-center mt-3">
+
+                    <div class="col-12">
+
+                        <table class="table textoAzul">
+
+                            <!-- tabla que muestra datos de la cita -->
+                            <tbody>
+
+                                <tr>
+                                    <th scope="row"><h6 class="textoAzul">Cita confirmada:</h6></th>
+                                    <td *ngIf="cita.confirmada; then confirmada else noConfirmada" class="align-items-center"></td>
+
+                                    <ng-template #confirmada>
+                                        <p class="textAzul">Sí</p>
+                                    </ng-template>
+                                    <ng-template #noConfirmada>
+                                        <p class="textAzul">No</p>
+                                    </ng-template>
+                                </tr>
+
+                                <tr>
+                                    <th scope="row"><h6 class="textoAzul">Doctor:</h6></th>
+                                    <td class="textAzul">{{ doctor.doctor.nombre }} {{ doctor.doctor.apellido }}</td>
+                                </tr>
+
+                                <tr>
+                                    <th scope="row"><h6 class="textoAzul">Fecha y hora:</h6></th>
+                                    <td class="textAzul">{{ cita.fecha }} a las {{ cita.hora }} hrs</td>
+                                </tr>
+                            </tbody>
+
+                        </table>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-12 textoAzul text-center mt-2">
+                <h5>Opciones sobre la cita</h5>
+            </div>
+        </div>
+        <div class="row mt-3 mb-3">
+            <div class="col-12 col-md-6">
+                <button class="btn btn-dark text-center h-100" (click)="cambiarFecha()">Cambiar fecha</button>
+            </div>
+            <div class="col-12 col-md-6 mt-2">
+                <button class="btn btn-dark text-center h-100" (click)="cancelarCita()">Cancelar cita</button>
+            </div>
+        </div>
+
+        <div class="row m-3" *ngIf="accion === 1">
+            <div class="col">
+
+                <div class="row">
+
+                    <div class="col-12 textoAzul">
+                        <h5 class="textoAzul">Seleccione una fecha:</h5>
+                        <input type="date" name="" id="" class="form-control" [(ngModel)]="fechaActiva" [ngModelOptions]="{standalone: true}" value="hoy">
+                    </div>
+
+
+                </div>
+
+                <div class="row mt-3">
+
+                    <div class="col d-flex justify-content-center">
+                        <button (click)="verHorario()" class="btn btn-dark h-100">VER HORAS</button>
+                    </div>
+
+                </div>
+
+                <div class="row m-3">
+
+                    <div class="col-12 textoAzul" *ngIf="seleccionada">
+                        <h5 class="textoAzul">Seleccione la hora de su cita:</h5>
+                        <form action="">
+                            <div class="form-group">
+                                <select class="form-control" [(ngModel)]="horaActiva" [ngModelOptions]="{standalone: true}">
+                                  <option *ngFor="let hora of horario">{{ hora.hora }}</option>
+                                </select>
+                            </div>
+                        </form>
+                    </div>
+
+                </div>
+
+                <div class="row" *ngIf="seleccionada">
+                    <div class="col d-flex justify-content-center">
+                        <button (click)="cambiar()" class="btn btn-dark h-100">CAMBIAR</button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="row" *ngIf="accion === 2">
+            <div class="col-12 text-center textoAzul">
+                <h5 class="textoAzul">¿Está seguro que desea cancelar su cita?</h5>
+            </div>
+            <div class="col-12 col-md-6 mt-2">
+                <button class="btn btn-dark text-center h-100" (click)="cancelar()">SÍ</button>
+            </div>
+            <div class="col-12 col-md-6 mt-2">
+                <button class="btn btn-dark text-center h-100" (click)="cancelarCita()">NO</button>
+            </div>
+        </div>
+    </li>
+</ng-template>
+
+<ng-template #elseBlock>
+    <div class="col textoAzul text-center mb-3">
+        <h5 class="textoAzul">No tiene citas próximas</h5>
+    </div>
+</ng-template>

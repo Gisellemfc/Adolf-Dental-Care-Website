@@ -1,0 +1,62 @@
+<div class="row dashboard sticky-top d-flex justify-content-center">
+
+    <div class="col-md-5 col-xs-2 col-sm-4 d-flex align-self-center justify-content-center">
+        <img class="align-self-center img-fluid logo" src="../../../assets/images/logoHorizontal.png" alt="">
+
+    </div>
+    <div class="col-md-10 col-xs-4 col-sm-4">
+        <!-- Menu Responsive de dashboard/tipo hamburguesa -->
+
+        <div class="row">
+
+            <div class="col-12 col-lg-10">
+
+                <!-- Menu -->
+                <nav class="altura navbar navbar-expand-lg navbar-light text-center">
+
+                    <button class="navbar-toggler self" data-toggle="collapse" data-target="#menu-header" aria-controls="menu-header" aria-expanded="false" aria-label="Menu">
+                            <span class="navbar-toggler-icon"></span>
+                    </button>
+
+                    <div class="collapse navbar-collapse" id="menu-header">
+                        <ul class="navbar-nav nav-justified d-flex align-items-center">
+
+                            <!-- Items del menu -->
+                            <!-- ngFor en el que recorro el navegador del usuario que se esté desplegando -->
+                            <li *ngFor="let navegacion of navbarUsuario" class="nav-item h-100">
+
+                                <!-- ngIf que verifica si hay o no un submenú -->
+                                <div *ngIf="navegacion.sub == null; then sinDrop else conDrop"></div>
+
+                                <!-- Si hay un submenú entonce despliega un navegador con dropdown -->
+                                <ng-template #conDrop>
+                                    <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        {{ navegacion.nombre }}
+                                      </a>
+                                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                        <a *ngFor="let subNav of navegacion.sub" class="dropdown-item" (click)="open(subNav.url)">{{ subNav.nombre }}</a>
+                                    </div>
+                                </ng-template>
+
+                                <!-- Si no hay un submenú solo despliega el título del menú -->
+                                <ng-template #sinDrop>
+                                    <a class="nav-link" (click)="open(navegacion.url)">{{navegacion.nombre}}</a>
+                                </ng-template>
+
+                            </li>
+
+                            <li class="nav-item h-100 d-flex d-md-none">
+                                <a class="nav-link btn btn-light h-100 w-100" (click)='salir()'>SALIR</a>
+                            </li>
+
+                        </ul>
+                    </div>
+                </nav>
+            </div>
+        </div>
+    </div>
+    <div class="col-12 col-md-2 d-flex align-items-center text-center">
+        <a class="btn btn-light h-50 w-100 d-none d-md-block text-center align-self-center" (click)='salir()'>SALIR</a>
+    </div>
+
+</div>

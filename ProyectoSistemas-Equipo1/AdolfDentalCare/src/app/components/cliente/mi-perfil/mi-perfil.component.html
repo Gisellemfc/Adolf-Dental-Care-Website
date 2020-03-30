@@ -1,0 +1,56 @@
+<div class="container-fluid">
+  
+
+    <div class="row justify-content-center">
+        <div class="col-12 col-md-6 col-lg-6 text-center mt-4">
+            <table class="table">
+                <tbody>
+                  <tr>
+                    <th class="titulosRosa"scope="row"><h4>Nombre y Apellido:</h4></th>
+                    <td><h4 class="textAzul textoALaIzquierda">{{ usuarioActivo.paciente.nombre }} {{ usuarioActivo.paciente.apellido }}</h4></td>
+                  </tr>
+                  <tr>
+                    <th class="titulosRosa"scope="row"><h4>Correo de usuario:</h4></th>
+                    <td><h4 class="textAzul textoALaIzquierda">{{ usuarioActivo.email}}</h4></td>
+                  </tr>
+                  <tr>
+                    <th class="titulosRosa"scope="row"><h4>Dirección:</h4></th>
+                    <td><h4 class="textAzul textoALaIzquierda">{{ usuarioActivo.paciente.direccion }}</h4></td>
+                  </tr>
+                  <tr>
+                    <th class="titulosRosa"scope="row"><h4>Fecha de nacimiento:</h4></th>
+                    <td><h4 class="textAzul textoALaIzquierda">{{ usuarioActivo.paciente.nacimiento }}</h4></td>
+                  </tr>
+                  <tr>
+                    <th class="titulosRosa"scope="row"><h4>Género:</h4></th>
+                    <td><h4 class="textAzul textoALaIzquierda">{{ usuarioActivo.paciente.genero }}</h4></td>
+                  </tr>
+                  <tr>
+                    <th class="titulosRosa"scope="row"><h4>Teléfono:</h4></th>
+                    <td><h4 class="textAzul textoALaIzquierda">{{ usuarioActivo.paciente.telefono }}</h4></td>
+                  </tr>
+                </tbody>
+              </table>
+        </div>
+
+        <div class="col-lg-4 col-md-4 d-none d-md-block  text-center">
+            <!--Logo usuario-->
+            <br><br><br><br>
+            <img src="../../../assets/images/logoUsuarioDashb.png" class="img-fluid" width="250px" alt="logoUsuario">
+        </div>
+
+
+       
+            <br>
+            <div class="col-12 col-xl-12 text-center">
+                <a class="btn btn-light w-50 h-100" (click)="modificarPerfil()">MODIFICAR PERFIL</a>
+            </div>
+        
+        
+    </div>
+    <div class="row">
+        <div class="col-12" *ngIf="modificar">
+            <app-modificar-perfil></app-modificar-perfil>
+        </div>
+    </div>
+</div>

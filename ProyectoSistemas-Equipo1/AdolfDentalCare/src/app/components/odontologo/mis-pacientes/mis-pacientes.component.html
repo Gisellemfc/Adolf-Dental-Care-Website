@@ -1,0 +1,85 @@
+<div class="row">
+    <div class="col text-center textoAzul mt-2 mb-2">
+        <h4 class="titulosRosa">MIS PACIENTES</h4>
+    </div>
+</div>
+
+<ul class="list-group">
+    <li class="list-group-item" *ngFor="let usuario of pacientesDoc; let i = index">
+        <div class="row textoAzul">
+            <div class="col-12">
+                <h5 class="textoAzul">Email: {{ usuario.data.email }}</h5>
+                <h5 class="textoAzul">Nombre y apellido: {{ usuario.data.paciente.nombre }} {{ usuario.data.paciente.apellido }}</h5>
+            </div>
+            <div class="col-12 ">
+                <button class="h-100 w-50 btn btn-primary text-center align-self-center" (click)="mostrarPerfil(i)">Perfil del paciente</button>
+            </div>
+        </div>
+        <div class="row" *ngIf="perfilActivo[i]">
+            <div class="col">
+                <div class="mt-3">
+                    <div class="row align-items-center">
+
+                        <div class="col-12">
+                            <table class="table">
+                                <!-- tabla que muestra datos de usuario -->
+                                <tbody>
+                                    <tr>
+                                        <th scope="row">
+                                            <h5 class="textoAzul">Género:</h5>
+                                        </th>
+                                        <td>
+                                            <p class="textoAzul">{{ usuario.data.paciente.genero }}</p>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">
+                                            <h5 class="textoAzul">Nacimiento:</h5>
+                                        </th>
+                                        <td>
+                                            <p class="textoAzul">{{ usuario.data.paciente.nacimiento }}</p>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">
+                                            <h5 class="textoAzul">Teléfono:</h5>
+                                        </th>
+                                        <td>
+                                            <p class="textoAzul">{{ usuario.data.paciente.telefono }}</p>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">
+                                            <h5 class="textoAzul">Dirección:</h5>
+                                        </th>
+                                        <td>
+                                            <p class="textoAzul">{{ usuario.data.paciente.direccion }}</p>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">
+                                            <h5 class="textoAzul">Antecedentes:</h5>
+                                        </th>
+                                        <td>
+                                            <p class="textoAzul">{{ usuario.data.paciente.antecedentes }}</p>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">
+                                            <h5 class="textoAzul">Alergias:</h5>
+                                        </th>
+                                        <td>
+                                            <p class="textoAzul">{{ usuario.data.paciente.alergias }}</p>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </li>
+</ul>
